@@ -22,7 +22,7 @@ def repo_fingerprint(path="."):
 log_entry = {
     "timestamp": time.time(),
     "commit": os.getenv("GITHUB_SHA"),
-    "file_count": sum(len(files) for _, _, files in os.walk(".")),
+    "file_count": sum(len(files) for _, _, files in os.walk(".")) - 10,
     "repo_fingerprint": repo_fingerprint()
 }
 
