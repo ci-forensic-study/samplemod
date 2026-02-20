@@ -9,9 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
+      # Tamper 1 added here
+      - name: Suspicious diagnostic step
+        run: |
+          echo "Running additional diagnostics..."
+          echo "Debug mode enabled"
+
       - run: python agent/monitor.py
 
       - name: Upload forensic log
